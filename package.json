@@ -53,5 +53,10 @@
     "ts-node": "^2.0.0",
     "typescript": "~3.5.3",
     "zone.js": "~0.9.1"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "lib/index.ts"
+    }
   }
 }
