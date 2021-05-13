@@ -50,10 +50,10 @@ export class Select2Component implements AfterViewInit, OnChanges, OnDestroy, On
             const link: any = head.children[head.children.length-1];
 
             if(!link.version) {
-                const newLink = this.renderer.createElement('style');
-                this.renderer.setProperty(newLink, 'type', 'text/css');
-                this.renderer.setProperty(newLink, 'version', 'select2');
-                this.renderer.setProperty(newLink, 'innerHTML', this.style);
+                const newLink = this.renderer.createElement( 'style');
+                this.renderer.setAttribute(newLink, 'type', 'text/css');
+                this.renderer.setAttribute(newLink, 'version', 'select2');
+                this.renderer.setAttribute(newLink, 'innerHTML', this.style);
             }
 
         }
@@ -86,7 +86,7 @@ export class Select2Component implements AfterViewInit, OnChanges, OnDestroy, On
         }
 
         if(changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
-            this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
+            this.renderer.setAttribute(this.selector.nativeElement, 'disabled', <any>this.disabled);
         }
     }
 
@@ -125,7 +125,7 @@ export class Select2Component implements AfterViewInit, OnChanges, OnDestroy, On
         // If select2 already initialized remove him and remove all tags inside
         if (this.element.hasClass('select2-hidden-accessible') == true) {
             this.element.select2('destroy');
-            this.renderer.setProperty(this.selector.nativeElement, 'innerHTML', '');
+            this.renderer.setAttribute(this.selector.nativeElement, 'innerHTML', '');
         }
 
         let options: Select2Options = {
@@ -148,7 +148,7 @@ export class Select2Component implements AfterViewInit, OnChanges, OnDestroy, On
         }
 
         if(this.disabled) {
-            this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
+            this.renderer.setAttribute(this.selector.nativeElement, 'disabled', <any>this.disabled);
         }
     }
 
@@ -164,11 +164,11 @@ export class Select2Component implements AfterViewInit, OnChanges, OnDestroy, On
         if(Array.isArray(newValue)) {
             for (let option of this.selector.nativeElement.options) {
                 if (newValue.indexOf(option.value) > -1) {
-                    this.renderer.setProperty(option, 'selected', 'true');
+                    this.renderer.setAttribute(option, 'selected', 'true');
                 }
-           }
+            }
         } else {
-            this.renderer.setProperty(this.selector.nativeElement, 'value', newValue);
+            this.renderer.setAttribute(this.selector.nativeElement, 'value', newValue);
         }
 
         this.element.trigger('change.select2');
