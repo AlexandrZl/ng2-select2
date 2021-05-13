@@ -27,7 +27,8 @@
     "prebuild": "npm run clean",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "build": "ng-packagr -p package.json",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@types/jquery": "^2.0.39",
