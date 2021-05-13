@@ -5,7 +5,9 @@
   "description": "Angular2 wrapper for select2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "scripts": {},
+  "scripts": {
+    "prepare": "ng-packagr -p package.json"
+  },
   "ngPackage": {
     "lib": {
       "entryFile": "src/index.ts"
