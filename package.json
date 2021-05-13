@@ -23,11 +23,9 @@
   },
   "homepage": "https://github.com/NejcZdovc/ng2-select2",
   "scripts": {
-    "clean": "rimraf ./compiled && rimraf ./dist",
-    "prebuild": "npm run clean",
-    "lint": "tslint -c tslint.json 'lib/**/*.ts'",
-    "build": "ng-packagr -p package.json",
-    "prepublishOnly": "npm run lint && npm run build",
+    "finish": "mv lib/ng2-select2.component.ts.bak lib/ng2-select2.component.ts && cp README.md dist && rimraf dist/ng2-select2.component.css",
+    "build": "rimraf dist && ts-node tools/inline-styles.ts && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/ng2-select2.js > dist/ng2-select2.bundle.js && cp package.json dist && ts-node tools/cleanup.ts && ngc -c tsconfig-esm.json && npm run finish",
+    "publish": "cd dist && npm publish",
     "prepare": "npm run build"
   },
   "dependencies": {
@@ -35,29 +33,22 @@
     "@types/select2": "4.0.42"
   },
   "peerDependencies": {
-    "@angular/common": ">=8.0.0",
-    "@angular/core": ">=8.0.0",
-    "@angular/platform-browser": ">=8.0.0"
+    "@angular/core": ">=2.2.0"
   },
   "devDependencies": {
-    "@angular/common": "8.2.14",
-    "@angular/compiler": "8.2.14",
-    "@angular/compiler-cli": "8.2.14",
-    "@angular/core": "8.2.14",
-    "@angular/platform-browser": "8.2.14",
-    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/common": "11.2.14",
+    "@angular/compiler": "11.2.14",
+    "@angular/compiler-cli": "11.2.14",
+    "@angular/core": "11.2.14",
+    "@angular/platform-browser": "11.2.14",
+    "@angular/platform-browser-dynamic": "11.2.14",
     "@types/node": "^7.0.0",
     "core-js": "^2.4.1",
-    "rimraf": "^3.0.0",
+    "rimraf": "^2.5.4",
     "rollup": "^0.41.4",
-    "rxjs": "^6.4.0",
+    "rxjs": "^5.0.3",
     "ts-node": "^2.0.0",
-    "typescript": "~3.5.3",
-    "zone.js": "~0.9.1"
-  },
-  "ngPackage": {
-    "lib": {
-      "entryFile": "lib/index.ts"
-    }
+    "typescript": "^2.1.5",
+    "zone.js": "^0.7.4"
   }
 }
