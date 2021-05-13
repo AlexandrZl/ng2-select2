@@ -12,17 +12,12 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types"
     ],
     "strict": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["es6", "es2015", "dom"]
   },
-  "files": [
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "files": ["src/index.ts"],
   "angularCompilerOptions": {
     "genDir": "compiled",
     "debug": true,
