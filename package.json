@@ -10,7 +10,7 @@
   },
   "ngPackage": {
     "lib": {
-      "entryFile": "src/index.ts"
+      "entryFile": "index.ts"
     }
   },
   "author": "Nejc Zdovc <nejc.zdovc@3zsistemi.si>",
