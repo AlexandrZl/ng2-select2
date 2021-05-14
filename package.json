@@ -11,7 +11,9 @@
   "ngPackage": {
     "lib": {
       "entryFile": "src/index.ts"
-    }
+    },
+    "dest": "./",
+    "deleteDestPath": false
   },
   "author": "Nejc Zdovc <nejc.zdovc@3zsistemi.si>",
   "license": "MIT",
