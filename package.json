@@ -6,7 +6,6 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "prepare": "ng-packagr -p package.json"
   },
   "ngPackage": {
     "lib": {
